@@ -1,8 +1,11 @@
+const path = require('path');
 const express = require('express');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config.js');
 const app = express();
+const bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser')
  
 const compiler = webpack(webpackConfig);
  
@@ -18,6 +21,7 @@ app.use(webpackDevMiddleware(compiler, {
   historyApiFallback: true,
 }));
  
+
 const server = app.listen(3000, function() {
   const host = server.address().address;
   const port = server.address().port;
