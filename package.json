@@ -10,7 +10,9 @@
   },
   "author": "Team Wind",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "mongoose": "^4.12.1"
+  },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",

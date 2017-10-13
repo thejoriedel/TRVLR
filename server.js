@@ -3,6 +3,12 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config.js');
 const app = express();
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://<thejozhou>:<database123>@ds119585.mlab.com:19585/trvlr');
+mongoose.connection.once('open', () =>{
+  console.log('connected')
+});
  
 const compiler = webpack(webpackConfig);
  
