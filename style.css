@@ -1,0 +1,116 @@
+body {
+    margin:0
+}
+#mount {
+    width:100%;
+    height:2200px;
+}
+#Bigtable {
+    width:100%;
+    height:2200px;
+    
+}
+#Sidebar {
+    width:18%;
+    height:650px;
+    border-right: 0.01em solid #ddd;
+    float:left;
+    position:fixed;
+    }
+
+ #logo {
+    margin-left:30px;
+    }
+
+#Mainpage {
+    width:82%;
+    height:2200px;
+    float:right;
+    border: 0.01em solid #ddd;
+    
+
+}
+#righthalf {
+    float:right;
+    width:50%;
+    height:100%;
+    border: 0.01em solid #ddd;
+    margin:0;
+}
+#lefthalf{
+    float:left;
+    width:524px;
+    height:650px;
+    margin:0;
+    position:fixed;
+}
+
+#list {
+    list-style-type: none;
+}
+
+.navi {
+    margin-left:21px;
+    font-size: 15px;
+    line-height: 1.5;
+    font-family: sans-serif;
+    color: #666;
+    width:100px;
+    height:20px;
+    text-align: center;
+    letter-spacing: -1px;
+    padding-top:5px;    
+}
+
+.Threeimgs {
+    border:1px solid black;
+    width:50px;
+    height:50px;
+}
+.picone {
+    width:33.3%;
+    height:100%;
+    float:left;
+    cursor: hand;
+    position:relative;
+    
+}
+.pictwo {
+    width:33.3%;
+    height:100%;
+    float:right;
+    cursor: hand;
+    position:relative;
+    /* content:url(https://previews.123rf.com/images/tekart/tekart1206/tekart120600004/14172283-Ocean-access-boardwalk-to-Florida-Beach-vertical-format--Stock-Photo.jpg) */
+}
+.picthree {
+    width:33.3%;
+    height:100%;
+    background-color:white;
+    float:right;
+    cursor: hand;
+}
+.midtext{
+    text-align:center;
+    font-size: 28px;
+    line-height: 1.5;
+    font-family: sans-serif;    
+    color:black;
+    margin-top:300px;
+}
+.imgfirst{
+    width:100%;
+    height:100%;
+}
+.txtpic{
+    z-index:100;
+    position:absolute; 
+    font-size:30px;
+    text-align:center;
+    position:absolute;
+    color:white;
+    font-family: sans-serif;    
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
