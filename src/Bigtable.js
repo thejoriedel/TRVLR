@@ -2,8 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Sidebar from './Sidebar.js'
 import Mainpage from './Mainpage.js'
+<<<<<<< HEAD
 // import Mongoose from 'mongoose'
 
+=======
+import axios    from 'axios'
+var that;
+>>>>>>> upstream/master
 class Bigtable extends React.Component {
  constructor(props) {
    super(props);
@@ -13,7 +18,7 @@ class Bigtable extends React.Component {
      second:'domestic',
      saveit:
      { 
-      'historical': false,
+      'cultural': false,
       'outdoors': false,
       "international": false,
       "domestic": false,
@@ -22,12 +27,12 @@ class Bigtable extends React.Component {
       "wine": false,
       "beer": false
     },
-     getit:[],
+     getit:'',
      firstpics:'https://www.zicasso.com/sites/default/files/styles/original_scaled_down/public/cleanup/sampletrip/Greece_Santorini_Tour_Stairs_in_Santorini.jpg',
      secondpics:'https://wallpapertag.com/wallpaper/middle/3/3/f/240898-vertical-las-vegas-wallpaper-1080x1920-notebook.jpg',
    };
    this.toggler = this.toggler.bind(this)
-   this.toggle = this.toggler.bind(this)
+   this.toggle = this.toggle.bind(this)
  }
  toggle(e) {
   e.preventDefault()  
@@ -36,16 +41,16 @@ class Bigtable extends React.Component {
      this.setState(
        {
          saveit: { ...this.state.saveit, "domestic": true },
-         first:'historical',
-         second:'outdoor',
+         first:'cultural',
+         second:'outdoors',
          firstpics:'https://i.pinimg.com/564x/3a/94/6e/3a946e1c59d1ba81748bd34c2b44a93d--paris-louvre-le-louvre.jpg',
          secondpics:'http://37.media.tumblr.com/3dee2844ff514e61a853c7a4e8dc7afa/tumblr_nag86fNEz11rub0hvo1_500.png'
        })
      }
-     if(this.state.second === 'outdoor') {
+     if(this.state.second === 'outdoors') {
        this.setState(
          {
-          saveit: { ...this.state.saveit, "outdoor": true },
+          saveit: { ...this.state.saveit, "outdoors": true },
            first:'warm',
            second:'cold',
            firstpics:'http://40.media.tumblr.com/7085a89f414bbacc99c5304711181092/tumblr_nsh92oLqhF1ro3fdho1_500.jpg',
@@ -56,12 +61,13 @@ class Bigtable extends React.Component {
       this.setState(
         {
           saveit: { ...this.state.saveit, "cold": true },
-          first:'Wine',
-          second:'Beer',
+          first:'wine',
+          second:'beer',
           firstpics:'https://www.homemadeinterest.com/wp-content/uploads/2015/11/Wine-Pairing-Party_vertical-wine-bottles.jpg',
           secondpics:'http://25.media.tumblr.com/16e0ac3a093bc0d27315e5c844eb7450/tumblr_mfm7gerPRU1qmstnqo1_500.jpg'
         })
     }
+    
     if(this.state.second === 'beer') {
       this.setState(
         {
@@ -73,11 +79,23 @@ class Bigtable extends React.Component {
           secondpics:'http://hdwallpaperbackgrounds.net/wp-content/uploads/2016/07/white-background-2.jpg'
         })
     }
-     if(this.state.second === '') {
-       const url = 'mongodb://thejozhou:database123@ds119585.mlab.com:19585/trvlr'
-      $.get(url ,(data, status) => {
-        this.setState({getit:data})
+     if(this.state.second === 'thanks') {
+      let newObj = this.state.saveit;
+      Object.keys(newObj).forEach(function(key) {
+        if (!newObj[key]) delete newObj[key]
       });
+       that=this;
+      axios.get('/query', {
+        params: newObj
+      })
+      .then(function (response) {
+        console.log(that)
+        that.setState({getit:response.data})
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    
     }
  }
 
@@ -88,16 +106,16 @@ class Bigtable extends React.Component {
       this.setState(
         {
           saveit: { ...this.state.saveit, "international": true },
-          first:'historical',
-          second:'outdoor',
+          first:'cultural',
+          second:'outdoors',
           firstpics:'https://i.pinimg.com/564x/3a/94/6e/3a946e1c59d1ba81748bd34c2b44a93d--paris-louvre-le-louvre.jpg',
           secondpics:'http://37.media.tumblr.com/3dee2844ff514e61a853c7a4e8dc7afa/tumblr_nag86fNEz11rub0hvo1_500.png'
         })
       }
-      if(this.state.first === 'historical') {
+      if(this.state.first === 'cultural') {
         this.setState(
           {
-            saveit: { ...this.state.saveit, 'historical' :true },
+            saveit: { ...this.state.saveit, 'cultural' :true },
             first:'warm',
             second:'cold',
             firstpics:'http://40.media.tumblr.com/7085a89f414bbacc99c5304711181092/tumblr_nsh92oLqhF1ro3fdho1_500.jpg',
@@ -125,10 +143,22 @@ class Bigtable extends React.Component {
             secondpics:"http://hdwallpaperbackgrounds.net/wp-content/uploads/2016/07/white-background-2.jpg"
           })
       }
-      if(this.state.first === '') {
-        $.get(`/result` ,(data, status) => {
-          this.setState({getit:data})
+      if(this.state.first === 'thanks') {
+        let newObj = this.state.saveit;
+        Object.keys(newObj).forEach(function(key) {
+          if (!newObj[key]) delete newObj[key]
         });
+        console.log(newObj);
+        that = this        
+        axios.get('/query', {
+          params: newObj
+        })
+        .then(function (response) {
+          that.setState({getit:response.data})
+        })
+        .catch(function (error) {
+        });
+      
       }    
  }
 
@@ -143,7 +173,8 @@ class Bigtable extends React.Component {
         toggle={this.toggle}
         toggler={this.toggler}
         firstpics={this.state.firstpics}
-        secondpics={this.state.secondpics}/>
+        secondpics={this.state.secondpics}
+        data={this.state.getit}/>
      </div>     
    )
  }
