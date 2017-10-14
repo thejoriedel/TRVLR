@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Sidebar from './Sidebar.js'
 import Mainpage from './Mainpage.js'
-import Mongoose from 'mongoose'
 
 class Bigtable extends React.Component {
  constructor(props) {
