@@ -1,7 +1,7 @@
-Nvntori
+Tour Travel App
 ---
 
-Hi!
+Based on user input, Tour Travel App returns suggestions of places to travel with flight/activity info. 
 
 Usage
 ---
