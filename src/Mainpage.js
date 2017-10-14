@@ -8,7 +8,7 @@ class Mainpage extends React.Component {
    let result = []
    let split = ['resultone','resulttwo','resultthree','resultfour']
    for(let i=0; i<this.props.data.length; i++) {
-    result.push(<div id={split[i]} className='result'>{this.props.data[i]}</div>)
+    result.push(<div id={split[i]} className='result' onClick={() => {this.props.suggest(this.props.data[i])}}>{this.props.data[i]}</div>)
    }
    return (
      <div id='Mainpage'>
