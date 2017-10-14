@@ -8,7 +8,7 @@ class Bigtable extends React.Component {
  constructor(props) {
    super(props);
    this.state = {
-     mention:'Pick',
+     mention:'Pick.',
      first:'international',
      second:'domestic',
      saveit:
@@ -67,7 +67,7 @@ class Bigtable extends React.Component {
       this.setState(
         {
           saveit: { ...this.state.saveit, "beer": true },
-          mention:'Thank you!',
+          mention:'You should travel to...',
           first:'thanks',
           second:'thanks',
           firstpics:'http://hdwallpaperbackgrounds.net/wp-content/uploads/2016/07/white-background-2.jpg',
@@ -131,7 +131,7 @@ class Bigtable extends React.Component {
         this.setState(
           {
             saveit: { ...this.state.saveit, "wine": true },
-            mention:'Thank you!',
+            mention:'You should travel to...',
             first:'thanks',
             second:'thanks',
             firstpics:"http://hdwallpaperbackgrounds.net/wp-content/uploads/2016/07/white-background-2.jpg",
