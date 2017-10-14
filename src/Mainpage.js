@@ -11,6 +11,7 @@ class Mainpage extends React.Component {
          mention = {this.props.mention}
           first={this.props.first}
           second={this.props.second}
+          toggle={this.props.toggle}
          toggler={this.props.toggler}
          firstpics={this.props.firstpics}
          secondpics={this.props.secondpics}

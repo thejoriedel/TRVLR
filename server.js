@@ -20,6 +20,12 @@ mongoose.connection.once('open', (err, success) => {
 //   err => {console.log('ERROR CONNECTING')}
 // );
 
+// mongoose.connect('mongodb://thejozhou:database123@ds119585.mlab.com:19585/trvlr');
+// mongoose.connection.once('open', () =>{
+//   console.log('connected')
+// });
+
+
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 
