@@ -6,11 +6,25 @@ const webpackConfig = require('./webpack.config.js');
 const app = express();
 
 const mongoose = require('mongoose');
+const Location = require('./server-mongoose/models/locationModel');
+const locationController = require('./server-mongoose/controllers/locationController');
+
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://teamwind:teamwind@ds119585.mlab.com:19585/trvlr');
+mongoose.connection.once('open', (err, success) => {
+  if (err) console.log('NOOOOOOOO');
+  console.log('CONNECTED YAYYYYY');
+})
+// then(
+//   () => {console.log('SUCCESSFULLY CONNECTED!')},
+//   err => {console.log('ERROR CONNECTING')}
+// );
 
 // mongoose.connect('mongodb://thejozhou:database123@ds119585.mlab.com:19585/trvlr');
 // mongoose.connection.once('open', () =>{
 //   console.log('connected')
 // });
+
 
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
@@ -29,7 +43,9 @@ app.use(webpackDevMiddleware(compiler, {
   },
   historyApiFallback: true,
 }));
- 
+
+app.get('/query', locationController.findMatches);
+app.post('/creating', locationController.create);
 
 const server = app.listen(3000, function() {
   const host = server.address().address;
