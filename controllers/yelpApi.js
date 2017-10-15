@@ -17,7 +17,6 @@ const yelpApi = {
 
     sendYelpReq: (req, res, err) => {
         const searchRequest = {
-            // term:'Four Barrel Coffee',
             location: req.params.location, //grab query results to use as location parameter
             limit: 10
         };
@@ -29,7 +28,6 @@ const yelpApi = {
                     .then(response => {
                         let result = [];
                         yelpData = (response.jsonBody.businesses);
-                        console.log(yelpData);
                         for (let i = 0; i < yelpData.length; i++) {
                             let locations = {};
                             locations.name = yelpData[i].name;
