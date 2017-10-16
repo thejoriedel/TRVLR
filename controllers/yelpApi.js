@@ -10,16 +10,13 @@ const clientSecret = 'e7j56E03cUSYOMhcEIQe8PpS2eKNqAaDrdGzNlJTSvPvnzECfdxwn3dqs0
 
 let yelpData;
 
-
 //THIS WORKS//
-// let yelpSearch = new Promise((resolve, reject) => {
 
 const yelpApi = {
 
     sendYelpReq: (req, res, err) => {
         const searchRequest = {
-            // term:'Four Barrel Coffee',
-            location: req.params.location, //grab query results to use as location parameter
+            location: req.query[0], //grab query results to use as location parameter
             limit: 10
         };
         console.log(req.params)
@@ -30,8 +27,6 @@ const yelpApi = {
                     .then(response => {
                         let result = [];
                         yelpData = (response.jsonBody.businesses);
-                        console.log(yelpData);
-                        // res.send(yelpData)
                         for (let i = 0; i < yelpData.length; i++) {
                             let locations = {};
                             locations.name = yelpData[i].name;
@@ -42,7 +37,6 @@ const yelpApi = {
                             result.push(locations);
                         }
                         res.send(result);
-                        // res.send('Done!');
                     })
                     .catch(e => {
                         console.log(e);

@@ -56,7 +56,6 @@ app.post('/creating', locationController.create);
 app.get('/yelpdata:location', yelpApi.sendYelpReq);
 
 const server = app.listen(3000, function() {
-  const host = server.address().address;
   const port = server.address().port;
-  console.log('Example app listening at http://%s:%s', host, port);
+  console.log('listening at port', port);
 });
