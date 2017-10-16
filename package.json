@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "compile": "webpack -w",
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Team Wind",
@@ -24,6 +24,7 @@
     "express": "^4.16.2",
     "isomorphic-fetch": "^2.2.1",
     "mongoose": "^4.12.2",
+    "nodemon": "^1.12.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "style-loader": "^0.19.0",
