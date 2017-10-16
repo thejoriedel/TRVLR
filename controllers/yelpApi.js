@@ -16,7 +16,7 @@ const yelpApi = {
 
     sendYelpReq: (req, res, err) => {
         const searchRequest = {
-            location: req.params.location, //grab query results to use as location parameter
+            location: req.query[0], //grab query results to use as location parameter
             limit: 10
         };
         console.log(req.params)
