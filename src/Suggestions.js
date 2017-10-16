@@ -1,3 +1,5 @@
+//THIS IS A CONTAINER FOR THE YELP RESULTS
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import YelpResult from './YelpResult';
@@ -5,10 +7,7 @@ import YelpResult from './YelpResult';
 class Suggestions extends React.Component {
 
     render() {
-        
-        // return (
-        //     'HI!'
-        // );
+
         let yelpSuggs = this.props.data.map(function (x, i) {
             return <YelpResult data={x} key={i} />
         });

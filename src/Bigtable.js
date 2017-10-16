@@ -35,10 +35,8 @@ class Bigtable extends React.Component {
     this.toggle = this.toggle.bind(this)
     this.suggest = this.suggest.bind(this)
   }
+  //SUGGEST FUNC SENDS REQUEST TO YELP API THROUGH YELP ROUTE
   suggest(loc) {
-    console.log('hello from suggest method');
-    // this.setState({ suggestion: this.state })
-    console.log(loc);
     that = this;
     axios.get('/yelpdata:location', {
       params: loc

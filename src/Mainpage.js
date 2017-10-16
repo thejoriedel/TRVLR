@@ -33,8 +33,9 @@ class Mainpage extends React.Component {
           {result}
           {console.log('suggestion props: ', this.props.suggestions)}
           {
+            //this renders the suggestions when the state is updated
             this.props.suggestions &&
-            <Suggestions data={this.props.suggestions}/>
+            <Suggestions data={this.props.suggestions} />
           }
         </div>
       </div>

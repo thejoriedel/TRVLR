@@ -10,7 +10,6 @@ const clientSecret = 'e7j56E03cUSYOMhcEIQe8PpS2eKNqAaDrdGzNlJTSvPvnzECfdxwn3dqs0
 
 let yelpData;
 
-
 //THIS WORKS//
 
 const yelpApi = {

@@ -1,3 +1,5 @@
+//THIS BUILDS UP EACH RESULT COMPONENT
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 
